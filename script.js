@@ -5,17 +5,18 @@ async function getFragments() {
   const response = await fetch(data);
   const archive = await response.json();
   let div = document.querySelector(".container");
+
+  /// ADDING FRAGMENT
   for (item of archive) {
     let frame = document.createElement("div");
-    // let filter = document.querySelector(".filter");
 
     const img_url = item.field_image_upload;
-    // console.log(item.tid + ". " + item.name);
-    //   console.log(item.field_image_upload);
+
     const fragment = document.createElement("img");
     const titl = document.createElement("p");
     const desc = document.createElement("p");
     const info = document.createElement("span");
+    const unit = document.createElement("div");
 
     fragment.src = "https://fragments.codepanel.in/" + img_url;
     fragment.width = "150";
@@ -24,10 +25,12 @@ async function getFragments() {
 
     fragment.classList.add("fragment");
     frame.classList.add("frame");
+    unit.classList.add("frag-box");
     info.classList.add("frag-info");
     titl.classList.add("frag-title");
 
-    frame.append(fragment);
+    frame.append(unit);
+    unit.append(fragment);
     frame.append(info);
     info.append(titl);
 
@@ -35,11 +38,15 @@ async function getFragments() {
       desc.innerHTML = item.body;
       desc.classList.add("description");
       info.append(desc);
+      // desc.innerHTML = item.field_tags_export;
+      // info.append(desc);
     }
 
     setPositionRandomly(frame);
 
     if (item.field_tags_export && item.field_tags_export.length > 0) {
+      // const tags = item.field_tags_export;
+      // info.append(tags);
       const sanitizedClasses = item.field_tags_export.map(
         (cls) => (cls = "t_" + cls.replace(/\s+/g, "-").toLowerCase())
       );
@@ -134,16 +141,18 @@ $(function () {
   $(document).on("click", ".frame", function (e) {
     $(".frame").removeClass("active");
     $(this).addClass("active");
+    $(".fragment").removeClass("expand-img");
+    $(".frag-info").removeClass("show-info");
     $(".fragment", this).addClass("expand-img");
     $(".frag-info", this).addClass("show-info");
     e.stopPropagation();
   });
 
-  $(document).on("click", function (e) {
-    if ($(e.target).is(".active") === false) {
-      $(".frame").removeClass("active");
-      $(".fragment").removeClass("expand-img");
-      $(".frag-info").removeClass("show-info");
-    }
-  });
+  // $(document).on("click", function (e) {
+  //   if ($(e.target).is(".active") == false) {
+  //     $(".frame").removeClass("active");
+  //     $(".fragment").removeClass("expand-img");
+  //     $(".frag-info").removeClass("show-info");
+  //   }
+  // });
 });

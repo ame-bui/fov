@@ -73,7 +73,6 @@ nav {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
   padding: 0.8em;
   cursor: crosshair;
-
 }
 .nav-bar a:hover,
 .nav-bar a:active {
@@ -135,12 +134,15 @@ nav {
   /* border: 1px solid black; */
   padding: 5px;
   display: flex;
+  flex-direction: row;
   max-width: 300px;
   width: fit-content;
   background: #f9fff1;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   text-wrap: wrap;
   transition: all 0.2s;
+  overflow: scroll;
+  gap: 16px;
 }
 
 .hide {
@@ -150,10 +152,11 @@ nav {
 
 .active {
   position: fixed;
-  width: 60vw;
-  height: calc(100vh - 10vw);
+  /* width: 60vw; */
+  /* height: 50vh; */
+  /* height: calc(100vh - 14vw); */
   max-width: 100vw;
-  top: 5vw !important;
+  top: 7vw !important;
   left: 20vw !important;
   z-index: 40;
 }
@@ -197,13 +200,22 @@ nav {
 
 .show-info {
   display: block !important;
+  width: 400px;
   transition: display 1s linear 1s;
+  flex-grow: 1;
+}
+
+.frag-box {
+  display: block;
+  /* object-fit: contain; */
+  /* height: calc(100vh - 14vw); */
+  flex-grow: 1;
 }
 
 .expand-img {
-  display: block;
-  width: auto;
-  height: calc(100vh - 10vw) !important;
+  width: calc(60vw / 2); /* you can use % */
+  height: auto;
+  max-height: calc(100vh - 14vw);
 }
 
 .frame:hover {
