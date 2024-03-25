@@ -12,11 +12,13 @@ async function getFragments() {
 
     const img_url = item.field_image_upload;
 
-    const fragment = document.createElement("img");
-    const titl = document.createElement("p");
-    const desc = document.createElement("p");
-    const info = document.createElement("span");
-    const unit = document.createElement("div");
+    const fragment = document.createElement("img"),
+      titl = document.createElement("p"),
+      desc = document.createElement("p"),
+      location = document.createElement("p"),
+      time = document.createElement("p"),
+      info = document.createElement("span"),
+      unit = document.createElement("div");
 
     fragment.src = "https://fragments.codepanel.in/" + img_url;
     fragment.width = "150";
@@ -28,6 +30,7 @@ async function getFragments() {
     unit.classList.add("frag-box");
     info.classList.add("frag-info");
     titl.classList.add("frag-title");
+    desc.classList.add("description");
 
     frame.append(unit);
     unit.append(fragment);
@@ -36,10 +39,21 @@ async function getFragments() {
 
     if (item.body && item.body.length > 0) {
       desc.innerHTML = item.body;
-      desc.classList.add("description");
       info.append(desc);
-      // desc.innerHTML = item.field_tags_export;
-      // info.append(desc);
+    }
+    //// LOCATION
+    if (item.field_location && item.field_location.length > 0) {
+      location.innerHTML = "Địa điểm / Location: " + item.field_location;
+      location.classList.add("loc-info");
+      info.append(location);
+    }
+
+    //// TIME
+    if (item.created && item.created.length > 0) {
+      time.innerHTML = "Ngày đăng tải: " + item.created;
+      time.classList.add("description");
+
+      info.append(time);
     }
 
     setPositionRandomly(frame);

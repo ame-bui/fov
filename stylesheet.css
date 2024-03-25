@@ -168,10 +168,11 @@ nav {
   padding: 0;
 }
 
-.description {
+.description,
+.loc-info {
   display: block;
   /* display: none; */
-  padding-top: 0.5em;
+  padding-top: 1em;
   width: auto;
   /* font-family: "Archivo", sans-serif;
   font-optical-sizing: auto;
@@ -199,7 +200,8 @@ nav {
 }
 
 .show-info {
-  display: block !important;
+  display: flex !important;
+  flex-direction: column;
   width: 400px;
   transition: display 1s linear 1s;
   flex-grow: 1;
