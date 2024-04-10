@@ -56,7 +56,7 @@ async function getFragments() {
       info.append(time);
     }
 
-    setPositionRandomly(frame);
+    setPosition(frame);
 
     if (item.field_tags_export && item.field_tags_export.length > 0) {
       // const tags = item.field_tags_export;
@@ -98,16 +98,20 @@ async function getTags() {
   filter.appendChild(filterList);
 }
 
-function setPositionRandomly(element) {
-  const screenWidth = window.innerWidth;
-  const screenHeight = window.innerHeight;
+function setPosition(element) {
+  const sWidth = $(window).width();
+  const sHeight = $(".container").height();
 
-  const randomX = 50 + Math.floor(Math.random() * (screenWidth - 300)); // Adjust for element width
-  const randomY = 50 + Math.floor(Math.random() * (screenHeight - 100)); // Adjust for element height
-
-  element.style.position = "absolute";
-  element.style.left = `${randomX}px`;
-  element.style.top = `${randomY}px`;
+  const randomX = 50 + Math.floor(Math.random() * (sWidth - 300));
+  const randomY = 50 + Math.floor(Math.random() * (sHeight - 100));
+  $(element).css({
+    position: "absolute",
+    left: randomX,
+    top: randomY,
+  });
+  // element.style.position = "absolute";
+  // element.style.left = `${randomX}px`;
+  // element.style.top = `${randomY}px`;
 }
 
 function createList(items) {
@@ -144,12 +148,27 @@ getTags()
 
 // setInterval(getFragments, 10000);
 
+// $(document).ready(function () {
+//   $(".filter li").click(function () {
+//     $(this).toggleClass("active-li");
+
+//     var filter = $(this).data("filter");
+//     $(".content")
+//       .filter(filter)
+//       .toggleClass("show", $(this).hasClass("active-li"));
+//   });
+// });
+
+// When the option in filter clicked
 $(document).on("click", ".filter li", function () {
-  selectedClass = $(this).data("tag");
-  $(".frame").addClass("hide");
+  var selectedClass = $(this).data("tag");
+
+  $(".frame").addClass("hide"); // All frame hide
   // alert(selectedClass);
-  $(selectedClass).removeClass("hide");
+  $(selectedClass).removeClass("hide"); // Only frame have the same class as the filter button show up
 });
+
+
 
 $(function () {
   $(document).on("click", ".frame", function (e) {
@@ -162,11 +181,19 @@ $(function () {
     e.stopPropagation();
   });
 
-  // $(document).on("click", function (e) {
-  //   if ($(e.target).is(".active") == false) {
-  //     $(".frame").removeClass("active");
-  //     $(".fragment").removeClass("expand-img");
-  //     $(".frag-info").removeClass("show-info");
-  //   }
-  // });
+  $(document).on("click", function (e) {
+    if (!$(e.target).closest(".frame").length) {
+      $(".frame").removeClass("active");
+      $(".fragment").removeClass("expand-img");
+      $(".frag-info").removeClass("show-info");
+    }
+  });
 });
+
+// $(document).on("click", function (e) {
+//   if ($(e.target).is(".active") == false) {
+//     $(".frame").removeClass("active");
+//     $(".fragment").removeClass("expand-img");
+//     $(".frag-info").removeClass("show-info");
+//   }
+// });
