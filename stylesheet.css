@@ -38,7 +38,7 @@ nav {
 }
 
 .nav-bar {
-  display: block;
+  display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
   gap: 1em;
@@ -61,11 +61,11 @@ nav {
   line-height: 1.2;
   font-size: 1.2em;
 
-  color: #2a361f;
-  background: #f9fff1;
+  color: #f9fff1;
+  background: rgba(0, 0, 0, 0.5);
   text-align: center;
 
-  border: 1px solid black;
+  border: 1px solid #f9fff1;
   border-radius: 20px;
   padding: 10px;
   /* border: 1px solid black;
@@ -73,11 +73,12 @@ nav {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
   padding: 0.8em;
   cursor: crosshair;
+  text-decoration: none;
 }
 .nav-bar a:hover,
 .nav-bar a:active {
-  color: #f9fff1;
-  background: #2a361f;
+  color: #2a361f;
+  background: #f9fff1;
   cursor: crosshair;
 
   text-decoration: none;
