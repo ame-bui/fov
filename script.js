@@ -168,17 +168,15 @@ $(document).on("click", ".filter li", function () {
   $(selectedClass).removeClass("hide"); // Only frame have the same class as the filter button show up
 });
 
-
-
 $(function () {
   $(document).on("click", ".frame", function (e) {
+    e.stopPropagation();
     $(".frame").removeClass("active");
     $(this).addClass("active");
     $(".fragment").removeClass("expand-img");
     $(".frag-info").removeClass("show-info");
     $(".fragment", this).addClass("expand-img");
     $(".frag-info", this).addClass("show-info");
-    e.stopPropagation();
   });
 
   $(document).on("click", function (e) {

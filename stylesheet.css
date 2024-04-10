@@ -4,7 +4,8 @@
 * {
   margin: 0;
   padding: 0;
-  font-size: 14px;
+  font-size: 16px;
+  /* color: #f9fff1; */
 }
 
 @media (max-width: 768px) {
@@ -41,7 +42,7 @@ body {
 
 .nav-button {
   color: #f9fff1;
-  font-size: 5em;
+  font-size: 4em;
 
   font-family: "Phudu", sans-serif;
   font-optical-sizing: auto;
@@ -52,8 +53,8 @@ body {
 
 nav {
   position: fixed;
-  top: 3%;
-  padding: 1em 2em;
+  top: 2%;
+  padding: 0em 2em;
   z-index: 41;
   display: flex;
 }
@@ -62,7 +63,7 @@ nav {
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
-  gap: 1em;
+  gap: 0.5em;
 
   list-style-type: none;
   margin: 0;
@@ -80,16 +81,15 @@ nav {
   font-optical-sizing: auto;
   font-weight: 300;
   line-height: 1.2;
-  font-size: 1.2em;
+  font-size: 1em;
 
   color: #f9fff1;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0);
   text-align: left;
 
   border: 1px solid #f9fff1;
   border-radius: 30px;
-  padding: 10px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: #0000003d 0px 3px 8px;
   padding: 0.8em;
   cursor: crosshair;
   text-decoration: none;
@@ -102,25 +102,78 @@ nav {
 
   text-decoration: none;
 }
+
+/* .nav-bar a:hover:before {
+  content: "[ ";
+}
+
+.nav-bar a:hover:after {
+  content: " ]";
+}
+
+.nav-bar a::before {
+  content: "( ";
+  font-size: 1.6em;
+}
+.nav-bar a::after {
+  content: " )";
+  font-size: 1.6em;
+} */
+
 /* Filter */
 .filter {
   position: fixed;
-  top: 3%;
+  top: 2%;
   right: 1em;
-  padding: 1em 2em 5em 1em;
+  padding: 0em 2em 5em 1em;
   z-index: 40;
   height: 100%;
   overflow: scroll;
-}
-.filter ol {
-  list-style-type: none;
   text-align: right;
+
   font-family: "Newsreader", serif;
   font-optical-sizing: auto;
   font-weight: 300;
   line-height: 1.5;
   font-style: italic;
   font-size: 0.9em;
+}
+
+.filter-button {
+  font-family: "Newsreader", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  line-height: 1.2;
+  font-style: italic;
+  font-size: 7em;
+  background-color: hsla(0, 0%, 0%, 0);
+  border: none;
+  text-decoration: none;
+  margin-bottom: -4em;
+
+  color: #f9fff1;
+  background: rgba(0, 0, 0, 0);
+
+  /* border: 1px solid #f9fff1;
+  border-radius: 50%; */
+  box-shadow: #0000003d 0px 3px 8px;
+  cursor: crosshair;
+  text-decoration: none;
+}
+
+.filter:hover ol {
+  display: block;
+}
+
+.filter ol {
+  display: none;
+  list-style-type: none;
+  /* font-family: "Newsreader", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  line-height: 1.5;
+  font-style: italic;
+  font-size: 0.9em; */
 }
 .filter li {
   color: #f9fff15a;
@@ -221,7 +274,7 @@ nav {
 
 .frag-info {
   display: none;
-  padding: 0 1em 1em 1em;
+  padding: 1em 1em 1em 1em;
   text-align: left;
 }
 
@@ -239,14 +292,14 @@ nav {
 }
 
 .frag-box {
-  /* display: block; */
+  display: block;
   /* object-fit: contain; */
   /* height: calc(100vh - 14vw); */
   flex-grow: 1;
 
-  display: flex;
+  /* display: flex;
   align-items: start;
-  justify-content: center;
+  justify-content: center ; */
 }
 
 .expand-img {
