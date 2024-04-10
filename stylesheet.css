@@ -132,6 +132,7 @@ nav {
   text-align: right;
 
   font-family: "Newsreader", serif;
+  color: #f9fff1;
   font-optical-sizing: auto;
   font-weight: 300;
   line-height: 1.5;
@@ -140,25 +141,28 @@ nav {
 }
 
 .filter-button {
-  font-family: "Newsreader", serif;
+  font-family: "Archivo", sans-serif;
   font-optical-sizing: auto;
   font-weight: 300;
-  line-height: 1.2;
-  font-style: italic;
-  font-size: 7em;
+  line-height: 1;
+  font-size: 5em;
   background-color: hsla(0, 0%, 0%, 0);
   border: none;
   text-decoration: none;
-  margin-bottom: -4em;
+  margin-bottom: -3em;
 
   color: #f9fff1;
   background: rgba(0, 0, 0, 0);
 
   /* border: 1px solid #f9fff1;
   border-radius: 50%; */
-  box-shadow: #0000003d 0px 3px 8px;
   cursor: crosshair;
   text-decoration: none;
+}
+
+.filter p {
+  margin-top: -1em;
+  font-style: normal;
 }
 
 .filter:hover ol {
