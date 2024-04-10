@@ -1,0 +1,23 @@
+name: fragments
+type: theme
+"base theme": stable9
+starterkit: true
+version: VERSION
+libraries:
+  - fragments/base
+  - fragments/messages
+  - core/normalize
+  - fragments/global-styling
+libraries-extend:
+  user/drupal.user:
+    - fragments/user
+  core/drupal.dropbutton:
+    - fragments/dropbutton
+  core/drupal.dialog:
+    - fragments/dialog
+  file/drupal.file:
+    - fragments/file
+  core/drupal.progress:
+    - fragments/progress
+core_version_requirement: ^10
+generator: "starterkit_theme:10.2.2"

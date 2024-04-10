@@ -247,10 +247,15 @@ color:white;
 #edit-tid ul li a:hover,
 #edit-tid ul li a.bef-link--selected {
   background: black;
+  display: inline-block;
   color: #f9fff1 !important;
 }
 
-button,
+#edit-tid ul > li > ul > li > a {
+  display: none;
+}
+
+#edit-tid ul li a.bef-link--selected > button,
 input[type="submit"] {
   display: inline-block;
   padding: 0.5em 1.5em;
@@ -310,5 +315,3 @@ article p {
   width: 50%;
   margin: 0 auto;
 }
-
-
