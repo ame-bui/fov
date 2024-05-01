@@ -49,9 +49,10 @@
 
   .filter ol li {
     display: inline-block;
-    background-color: #eeeeee32;
+    background-color: #eeeeee21;
     list-style-type: none;
     padding: 10px;
+    color: white;
     border: 1px solid #f9fff1;
     border-radius: 30px;
 
